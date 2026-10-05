@@ -1,0 +1,42 @@
+{
+  "name": "varstor-react",
+  "version": "0.0.1",
+  "description": "Seamless integration of Varstor state manager into React applications with a React-like hook usage flow",
+  "license": "MIT",
+  "author": "Igor Morozov <ismorozs@gmail.com>",
+  "main": "./dist/varstor-react.js",
+  "exports": {
+    ".": "./dist/varstor-react.js"
+  },
+  "scripts": {
+    "start": "webpack"
+  },
+  "devDependencies": {
+    "@babel/cli": "8.0.6",
+    "@babel/core": "8.0.6",
+    "@babel/plugin-transform-react-jsx": "8.0.1",
+    "@babel/preset-react": "8.0.1",
+    "@babel/preset-typescript": "8.0.1",
+    "@types/react": "19.3.0",
+    "babel-loader": "10.1.1",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "typescript": "6.0.3",
+    "varstor": "0.6.66",
+    "webpack": "5.108.4",
+    "webpack-cli": "7.2.1"
+  },
+  "homepage": "https://github.com/ismorozs/varstor-react",
+  "repository": "https://github.com/ismorozs/varstor-react.git",
+  "bugs": "https://github.com/ismorozs/varstor-react/issues",
+  "keywords": [
+    "react",
+    "reactivity",
+    "state",
+    "store",
+    "storage",
+    "reactive",
+    "management",
+    "development"
+  ]
+}
