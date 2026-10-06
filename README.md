@@ -32,10 +32,10 @@ The ```ChildComponent```s it embeds will be the consumers of the data from those
 ## ```useVarstor``` hook
 This hook should be called from inside the ```ChildComponent``` to access the data of a ```Varstor``` store instance.  
   
-It takes a ```Namespace``` string, which corresponds to the namespace of the said ```Varstor``` instance, and returns all its ```NamespaceValues```.
+It takes the aforementioned ```Varstor``` instance as the one and only argument and returns all of its ```values```.
 ```js
 const ChildComponent = () => {
-  const { ...NamespaceValues } = useVarstor(Namespace string);
+  const { ...values } = useVarstor(Varstor);
   ...
 }
 ```
@@ -49,15 +49,13 @@ That's it... Any data mutations within the stores will be immediately sent to co
 import Varstor from 'varstor';
 import { VarstorProvider, useVarstor } from 'varstor-react';
 
-// create value
 Varstor.add({ count: 0 });
-// create action
 Varstor.actions({ 
   increment: ({ get, set }) => set({ count: get().count + 1 })
 });
 
 const Component = () => {
-  const { count, increment } = useVarstor(); // no namespace means it is the initial namespace
+  const { count, increment } = useVarstor(Varstor);
   return (
     <div>
       Count: {count} <button onClick={increment}>Increment</button>
@@ -67,7 +65,8 @@ const Component = () => {
 
 function App () {
   return (
-    // initial Varstor instance has the initial namespace, which is an empty string
+    // initial Varstor object from the library is also an instance
+    // that has the initial namespace, which is an empty string
     <VarstorProvider stores={[Varstor]}>
       <Component />
     </VarstorProvider>
@@ -88,7 +87,7 @@ timeStore.add({ time: new Date() });
 setInterval(() => timeStore.set({ time: new Date() }), 1000);
 
 const Component = () => {
-  const { time } = useVarstor("time");
+  const { time } = useVarstor(timeStore);
   const hours = time.getHours();
   const minutes = time.getMinutes();
   const seconds = time.getSeconds();

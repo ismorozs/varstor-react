@@ -152,7 +152,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const CONTEXTS = {};
-const useVarstor = (namespace = "") => (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(CONTEXTS[namespace]);
+const useVarstor = store => (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(CONTEXTS[store.namespace()]);
 const VarstorProvider = ({
   children,
   stores

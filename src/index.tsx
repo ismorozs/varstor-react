@@ -18,7 +18,8 @@ export type IVarstorProviderProps = {
   stores: IVarstor[];
 };
 
-export const useVarstor = (namespace = "") => useContext(CONTEXTS[namespace]);
+export const useVarstor = (store: IVarstor) =>
+  useContext(CONTEXTS[store.namespace()]);
 
 export const VarstorProvider = ({
   children,
